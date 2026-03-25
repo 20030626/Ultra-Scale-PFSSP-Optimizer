@@ -237,14 +237,14 @@ $$
 Ruiz 和 Stützle 的文献中，系统初始温度的计算公式为：
 
 $$
-Temperature = \text{temp\_factor} \times \frac{\sum_{i=1}^{n}\sum_{j=1}^{m} p_{i,j}}{n \times m \times 10}
+Temperature = \text{tempFactor} \times \frac{\sum_{i=1}^{n}\sum_{j=1}^{m} p_{i,j}}{n \times m \times 10}
 $$
 
-*(其中 $\text{temp\_factor}$ 传统默认值为 0.4)*
+*(其中 `temp_factor` 传统默认值为 0.4)*
 
-**本项目的重要发现**：在 $1000 \times 1000$ 的超大矩阵下，若沿用文献默认的 $\text{temp\_factor} = 0.4$，计算出的退火概率 $P$ 将无限趋近于 0（例如 $e^{-25} \approx 0$），导致 SA 机制彻底失效，算法退化为死板的爬山法。
+**本项目的重要发现**：在 $1000 \times 1000$ 的超大矩阵下，若沿用文献默认的 `temp_factor` = 0.4，计算出的退火概率 $P$ 将无限趋近于 0（例如 $e^{-25} \approx 0$），导致 SA 机制彻底失效，算法退化为死板的爬山法。
 
-因此，本项目通过自动化网格调参（Grid Search），摒弃了经典文献中不合理的 $d=4$ 与 $\text{temp\_factor}=0.4$，重新给出超大规模问题的最优参数。
+因此，本项目通过自动化网格调参（Grid Search），摒弃了经典文献中不合理的 $d=4$ 与 `temp_factor` = 0.4，重新给出超大规模问题的最优参数。
 
 ### E. 禁忌搜索与模拟退火的混合方法 (本项目最终的优化引擎)
 
